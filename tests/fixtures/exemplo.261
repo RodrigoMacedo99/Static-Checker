@@ -1,0 +1,16 @@
+// Programa de exemplo BobEnzo2026-1
+program meuPrograma
+declarations
+  varType integer : contador, total
+  varType real : media
+  varType string : nome
+  varType integer [] : numeros
+endDeclarations
+functions
+  funcType integer : calcular(paramType integer : a, b)
+    a := 10
+    b := 20
+    return a
+  endFunction
+endFunctions
+endProgram

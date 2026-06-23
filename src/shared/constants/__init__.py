@@ -1,0 +1,9 @@
+MAX_LEXEME_LENGTH: int = 30
+MAX_SYMBOL_LINES: int = 5
+BUFFER_SIZE: int = 4096
+TEAM_NAME: str = "EQ01"
+TEAM_MEMBERS: str = "Eduardo Fiscina, Maria Luiza Queiroz, Matheus Sarno e Rodrigo Macêdo"
+SOURCE_EXTENSION: str = ".261"
+LEX_EXTENSION: str = ".LEX"
+TAB_EXTENSION: str = ".TAB"
+EOF_CHAR: str = "\x00"
