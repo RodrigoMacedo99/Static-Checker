@@ -7,8 +7,10 @@ from ....shared.constants import EOF_CHAR
 from .token_recognizer import TokenRecognizer
 
 _SINGLE: dict[str, AtomCode] = {
-    ";": AtomCode.SEMICOLON, "(": AtomCode.LPAREN, ")": AtomCode.RPAREN,
-    "]": AtomCode.RBRACKET, "{": AtomCode.LBRACE, "}": AtomCode.RBRACE,
+    ";": AtomCode.SEMICOLON, 
+    "(": AtomCode.LPAREN, ")": AtomCode.RPAREN,
+    "[": AtomCode.LBRACKET, "]": AtomCode.RBRACKET, 
+    "{": AtomCode.LBRACE, "}": AtomCode.RBRACE,
     "#": AtomCode.HASH, "+": AtomCode.PLUS, "-": AtomCode.MINUS,
     "*": AtomCode.STAR, "%": AtomCode.PERCENT, ",": AtomCode.COMMA,
     "?": AtomCode.QUESTION,
