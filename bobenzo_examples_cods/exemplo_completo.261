@@ -1,0 +1,78 @@
+/* ============================================================
+   Exemplo completo da linguagem BobEnzo2026-1 - Equipe EQ01
+   Exercita: comentarios de bloco e de linha, todos os tipos,
+   vetores, funcoes com parametros, comandos (if/else, while,
+   print, return, break), expressoes com todos os operadores,
+   todas as constantes (int, real, cientifico, string, char,
+   true/false) e a regra de case-insensitivity.
+   ============================================================ */
+
+program exemploCompleto
+
+declarations
+    varType integer : contador, total, resto ;
+    varType real : media, taxa ;
+    varType string : nome ;
+    varType character : inicial ;
+    varType boolean : ativo ;
+    varType integer [] : numeros [10] ;
+    varType real [] : valores [5]
+endDeclarations
+
+functions
+
+    // soma dois inteiros e devolve um inteiro
+    funcType integer : somar ( paramType integer : a, b )
+        return a + b
+    endFunction ;
+
+    // calcula a media de dois reais
+    funcType real : calcularMedia ( paramType real : x, y )
+    {
+        media := ( x + y ) / 2.0 ;
+        return media
+    }
+    endFunction ;
+
+    // funcao principal sem parametros (usa "?")
+    funcType void : principal ( ? )
+    {
+        contador := 0 ;
+        total := 100 ;
+        taxa := 1.5e-3 ;
+        nome := "Bob Enzo 2026" ;
+        inicial := 'b' ;
+        ativo := true ;
+
+        while ( contador < total )
+        {
+            total := total - contador ;
+            resto := total % 2 ;
+            if ( resto == 0 )
+                print "par"
+            else
+            {
+                if ( contador >= 50 )
+                    break
+                endIf ;
+                print "impar"
+            }
+            endIf ;
+            contador := contador + 1
+        }
+        endWhile ;
+
+        media := somar ( total , contador ) ;
+
+        // case-insensitive: WHILE/IF/PRINT/FALSE valem como minusculas
+        IF ( media # 0.0 )
+            PRINT media
+        else
+            ativo := false
+        endIf
+    }
+    endFunction
+
+endFunctions
+
+endProgram
