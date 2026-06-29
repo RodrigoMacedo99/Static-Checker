@@ -49,7 +49,7 @@ def _build_service(base_name: str) -> StaticCheckerService:
 
 
 def main() -> None:
-    base_name = _parse_args()
+    base_name = "./source.261"
     try:
         service = _build_service(base_name)
         tokens = service.run()

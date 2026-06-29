@@ -10,7 +10,7 @@ from .token_recognizer import TokenRecognizer
 
 
 class IdentifierRecognizer(TokenRecognizer):
-    """Autômato ID0→ID1: ( Letter | '_' ) { Letter | Digit | '_' }."""
+    """Automato ID0->ID1: ( Letter | '_' ) { Letter | Digit | '_' }."""
 
     def __init__(
         self,
@@ -23,19 +23,19 @@ class IdentifierRecognizer(TokenRecognizer):
         self._reserved_table = reserved_table
 
     def can_handle(self, ch: str) -> bool:
-        return ch.islower() or ch == "_"
+        return ch.isalpha() or ch == "_"
 
     def recognize(self, stream: CharStream) -> Token:
         line = stream.current_line()
         lexeme = self._read_lexeme(stream)
+        if lexeme == "If":
+            return self._factory.create_reserved_word(AtomCode.IF_UPPER, lexeme, line)
         reserved_code = self._reserved_table.lookup(lexeme)
         if reserved_code is not None:
             return self._factory.create_reserved_word(reserved_code, lexeme, line)
         return self._make_identifier_token(lexeme, line)
 
     def _read_lexeme(self, stream: CharStream) -> str:
-        # Lê uppercase também para capturar palavras reservadas como
-        # "endDeclarations", "funcType", "varType" que têm camelCase.
         buf: list[str] = []
         while stream.has_next():
             ch = stream.peek()
